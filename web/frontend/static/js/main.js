@@ -86,10 +86,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     function closeModal() {
-        const modal_div = document.getElementById('addCameraModal');
-        modal_div.classList.add("hide");
-        modal_div.classList.remove("show")
-        modal_div.style.display = 'none';
-        modal_div.setAttribute('aria-hidden', 'true');
+        var myModal = bootstrap.Modal.getInstance(document.getElementById('addCameraModal'))
+        myModal.hide()
+
+        // const modal_div = document.getElementById('addCameraModal');
+        // modal_div.classList.add("hide");
+        // modal_div.classList.remove("show")
+        // modal_div.style.display = 'none';
+        // modal_div.setAttribute('aria-hidden', 'true');
     }
 })
