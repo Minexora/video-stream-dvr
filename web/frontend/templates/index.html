@@ -1,0 +1,91 @@
+{% extends "base.html" %} 
+{% block title %}Canlı Kamera{% endblock %} 
+{% block style %}
+  <style type="text/css">
+    .video_streams::-webkit-scrollbar{
+      display: none;
+      width: 0 !important
+    }
+  </style>
+{% endblock %} 
+{% block location %} Canlı Kamera Görüntüleri {% endblock %} 
+{% block content %}
+<div class="row">
+  <div
+    class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pb-3"
+    style="text-align: right"
+  >
+    <button
+      id="add-camera"
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#addCameraModal"
+    >
+      Kamera Ekle
+    </button>
+  </div>
+
+  <div class="w-100 row video_streams m-0">
+     
+  </div>
+
+</div>
+
+<div
+  class="modal fade"
+  id="addCameraModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Kamera Ekle</h5>
+        <button
+          type="button"
+          class="close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="add_camera_form">
+          <div class="form-group">
+            <label for="camera_name">Kamera Adı</label>
+            <input
+              type="text"
+              class="form-control"
+              id="camera_name"
+              placeholder="Kamera Adı"
+            />
+          </div>
+          <div class="form-group pt-3">
+            <label for="camera_url">Kamera Url</label>
+            <input
+              type="text"
+              class="form-control"
+              id="camera_url"
+              placeholder="Kamera Url"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Kapat
+        </button>
+        <button type="button" id="add_camera_btn" class="btn btn-primary">
+          Kamera Ekle
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} 
+{% block script %}
+{% endblock %}

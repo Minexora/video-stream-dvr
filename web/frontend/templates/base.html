@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <!-- <link rel="stylesheet" href="../static/css/bootstrap.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../static/css/fontawysomeall.min.css" /> -->
+    <title>{% block title %}{% endblock %}</title>
+    {% block style %}{% endblock %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}"
+    />
+    <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/video.css') }}"
+    /> -->
+  </head>
+
+  <body>
+    <div class="container-fluid p-0 m-0 h-100">
+      <div class="row h-100 p-0 m-0">
+        <div
+          class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2 text-start p-0"
+        >
+          <div
+            class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark h-100"
+          >
+            <a
+              href="/"
+              class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+            >
+              <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap"></use>
+              </svg>
+              <span class="fs-4">Video Stream</span>
+            </a>
+            <hr />
+            <ul class="nav nav-pills flex-column mb-auto">
+              <li class="nav-item">
+                <a
+                  href="/"
+                  class="nav-link text-white {% if request.path == '/'%}active {% endif %}"
+                  aria-current="page"
+                >
+                  <svg class="bi me-2" width="16" height="16">
+                    <i class="fa-solid fa-grid-dividers"></i>
+                  </svg>
+                  Kameralar
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/videos"
+                  class="nav-link text-white {% if request.path == '/videos'%} active {% endif %}"
+                >
+                  <svg class="bi me-2" width="16" height="16">
+                    <use xlink:href="#speedometer2"></use>
+                  </svg>
+                  Kayıtlar
+                </a>
+              </li>
+            </ul>
+            <hr />
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10 p-0">
+          <div class="row m-0">
+            <div class="col col-md-12 p-0">
+              <nav
+                class="navbar navbar-expand-lg"
+                style="background-color: rgb(216, 11, 216)"
+              >
+                <div class="container-fluid text-white">
+                  <a class="navbar-brand text-white" href="#"
+                    >{% block location %} {% endblock %}</a
+                  >
+                </div>
+              </nav>
+            </div>
+
+            <div class="col col-md-12 mt-1">
+              {% block content %}{% endblock %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-live="polite"
+      aria-atomic="true"
+      class="toast-container top-0 end-0"
+    >
+      <div
+        id="msgToast"
+        class="toast hide"
+        data-autohide="false"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto header"></strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">Hello, world! This is a toast message.</div>
+      </div>
+    </div>
+
+    <script src="{{url_for('static', filename='js/bootstrap/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/soketio/sio.js')}}"></script>
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+    {% block script %}{% endblock %}
+  </body>
+</html>
